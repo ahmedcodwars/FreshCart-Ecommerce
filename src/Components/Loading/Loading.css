@@ -1,0 +1,155 @@
+/* Full-page centering container */
+.loading {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+}
+
+/* Cart Loading Animation */
+.preloader {
+    --hue: 120;
+    --bg: hsl(var(--hue), 10%, 90%);
+    --fg: hsl(var(--hue), 10%, 10%);
+    --primary: hsl(var(--hue), 40%, 55%);
+    --trans-dur: 0.3s;
+    font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
+    text-align: center;
+    /* max-width: 20em; */
+    width: 100%;
+    color: var(--fg);
+}
+
+.preloader__text {
+    position: relative;
+    height: 1.5em;
+    overflow: hidden;
+}
+
+.preloader__msg {
+    animation: msg-hide 0.3s 13.7s linear forwards;
+    position: absolute;
+    width: 100%;
+}
+
+.preloader__msg--last {
+    animation: msg-show 0.3s 14s linear forwards;
+    visibility: hidden;
+}
+
+.cart {
+    display: block;
+    margin: 0 auto 1.5em auto;
+    width: 8em;
+    height: 8em;
+    color: var(--primary);
+}
+
+/* === Cart Animations === */
+.cart__lines {
+    stroke: var(--primary);
+    animation: cartLines 2s ease-in-out infinite;
+}
+
+.cart__top {
+    animation: cartTop 2s ease-in-out infinite;
+}
+
+.cart__wheel1 {
+    animation: cartWheel1 1s linear infinite;
+    transform: rotate(-0.25turn);
+    transform-origin: 43px 111px;
+}
+
+.cart__wheel2 {
+    animation: cartWheel2 1s linear infinite;
+    transform: rotate(0.25turn);
+    transform-origin: 102px 111px;
+}
+
+.cart__wheel-stroke {
+    animation: cartWheelStroke 2s ease-in-out infinite;
+}
+
+.cart__track {
+    stroke: hsla(var(--hue), 10%, 10%, 0.1);
+    transition: stroke var(--trans-dur);
+}
+
+/* === Keyframes === */
+@keyframes cartLines {
+    0% {
+        stroke-dashoffset: 338;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -338;
+    }
+}
+
+@keyframes cartTop {
+    0% {
+        stroke-dashoffset: 338;
+    }
+
+    50% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -338;
+    }
+}
+
+@keyframes cartWheel1 {
+    0% {
+        transform: rotate(-0.25turn);
+    }
+
+    100% {
+        transform: rotate(0.75turn);
+    }
+}
+
+@keyframes cartWheel2 {
+    0% {
+        transform: rotate(0.25turn);
+    }
+
+    100% {
+        transform: rotate(1.25turn);
+    }
+}
+
+@keyframes cartWheelStroke {
+    0% {
+        stroke-dashoffset: 81.68;
+    }
+
+    100% {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* === Text Message Animations === */
+@keyframes msg-hide {
+    to {
+        visibility: hidden;
+    }
+}
+
+@keyframes msg-show {
+    to {
+        visibility: visible;
+    }
+}
+
+/* Optional hover effect */
+.main-shadow:hover {
+    box-shadow: #4fa74f 0px 13px 27px -5px, #4fa74f 0px 8px 16px -8px;
+}
