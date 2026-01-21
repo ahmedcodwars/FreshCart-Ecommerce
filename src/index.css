@@ -1,7 +1,4 @@
 @import "tailwindcss";
-@plugin "tailwindcss-animate";
-@import "tw-animate-css";
-
 
 html {
     scroll-behavior: smooth;
@@ -142,6 +139,7 @@ body {
     --sidebar-border: oklch(0.922 0 0);
     --sidebar-ring: oklch(0.708 0 0);
 }
+
 /* 
 .dark {
     --background: oklch(0.145 0 0);
